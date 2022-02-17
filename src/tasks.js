@@ -16,7 +16,7 @@ exports.getTasks = (request, response) => {
     const db = connectDB(); 
     db.collection('tasks').get()
     .then(snapshot => { 
-        const taskList = snapshot.doc.map(doc =>{ //get a snapshot of the doc to receive them
+        const taskList = snapshot.docs.map(doc =>{ //get a snapshot of the doc to receive them
             let task = doc.data() 
             task.id = doc.id 
             return task;
