@@ -4,10 +4,13 @@ const { connectDB } = require('./connectDB'); //you imported this from the conne
 
 //ES5 way
 exports.createTask = (request, response) => {
-    const newTask = request.body;
-    const db = connectDB;
+    const newTask = {
+        task: request.body.task,
+        done: false
+      };
+    const db = connectDB();
     db.collection('tasks').add(newTask)
-    .then(doc = response.status(201).send(doc.id))
+    .then(doc => response.status(201).send(doc.id))
     .catch(err => response.status(500).send(err))
 }
 
