@@ -14,7 +14,7 @@ app.use(express.json());
 app.post('/tasks', createTask);
 app.get('/tasks', getTasks);
 app.patch('/tasks/:taskId', updateTask);
-app.delete("/tasks/:taskId", deleteTask);
+app.delete('/tasks/:taskId', deleteTask);
 
 app.listen(PORT, () => {
     console.log('Listening on PORT: ', PORT)

@@ -42,7 +42,7 @@ exports.updateTask = (request, response) => {
 
 exports.deleteTask = (request, response) => {
     const { taskId } = request.params;
-    const db = connectDb();
+    const db = connectDB();
     db.collection("tasks")
       .doc(taskId)
       .delete()
