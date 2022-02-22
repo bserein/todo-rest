@@ -40,5 +40,18 @@ exports.updateTask = (request, response) => {
     .catch(err => response.status(500).send(err))
 }
 
+exports.deleteTask = (request, response) => {
+    const { taskId } = request.params;
+    const db = connectDb();
+    db.collection("tasks")
+      .doc(taskId)
+      .delete()
+      .then(() => {
+        response.send("Deleted task");
+      })
+      .catch((err) => response.status(500).send(err));
+  };
+
+
 //gcloud config set project "project name"
 // gcloud app deploy - now it will deploy it
