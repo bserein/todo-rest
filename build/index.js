@@ -19,7 +19,3 @@ app.delete('/tasks/:taskId', tasks_1.deleteTask);
 app.listen(PORT, () => {
     console.log('Listening on PORT: ', PORT);
 });
-//to start listening on PORT 3000
-// npx ts-node index.ts
-//uncomment line 50 in the tsconfig.json
-// run tsc and this will have a build command to be able to compile this and send it to the cloud 
