@@ -1,9 +1,9 @@
-const { connectDB } = require("./connectDB"); //you imported this from the connect file
-//ES 6 way
+import { connectDB } from "./connectDB"; //you imported this from the connect file
+import { Request, Response } from "express";
 //export function createTask() {}
 
 //ES5 way
-exports.createTask = (request, response) => {
+export const createTask = (request: Request, response: Response) => {
   const newTask = {
     task: request.body.task,
     done: false,
@@ -15,7 +15,7 @@ exports.createTask = (request, response) => {
     .catch((err) => response.status(500).send(err));
 };
 
-exports.getTasks = (request, response) => {
+export const getTasks = (request: Request, response: Response) => {
   const db = connectDB();
   db.collection("tasks")
     .get()
@@ -33,7 +33,7 @@ exports.getTasks = (request, response) => {
   // response.send("Get Tasks is working.") <-- this was just to make sure that it works
 };
 
-exports.updateTask = (request, response) => {
+export const updateTask = (request: Request, response: Response) => {
   const { taskId } = request.params;
   const isDone = request.body.done;
   const db = connectDB();
@@ -44,7 +44,7 @@ exports.updateTask = (request, response) => {
     .catch((err) => response.status(500).send(err));
 };
 
-exports.deleteTask = (request, response) => {
+export const deleteTask = (request: Request, response: Response) => {
   const { taskId } = request.params;
   const db = connectDB();
   db.collection("tasks")

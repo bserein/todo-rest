@@ -1,7 +1,6 @@
-// to add them do --> npm i firebase-admin express cors <-- do this to add them
-const express = require('express'); //<-- ES5 import 
-const cors = require('cors'); //<-- allows cross origin resource sharing
-const { getTasks, createTask, updateTask, deleteTask } = require('./src/tasks')
+import express from 'express'; 
+import  cors from 'cors'; //<-- allows cross origin resource sharing
+import { getTasks, createTask, updateTask, deleteTask } from './src/tasks'
 const PORT = process.env.PORT || 3000
 //env is for environmental variable 
 
